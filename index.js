@@ -72,11 +72,8 @@ app.configure(function(){
 });
 
 app.get('/', function(req,res){ res.render('home'); });
-app.get('home', function(req,res){ res.render('home'); });
 app.get('/add', function(req,res){ res.render('add_feed'); });
-app.get('/config',function(req,res){ 
-	console.log(req);
-	res.render('config'); });
+app.get('/config',function(req,res){ res.render('config'); });
 
 app.post('/config', function(req,res){
 
@@ -101,14 +98,14 @@ app.get('/fetch_now', function(req,res){
 	
 	if(req.query.index){
 		showCatcher.processFeed(showCatcher.subscriptions[req.query.index], function(err){
-			res.redirect('home');
+			res.render('home');
 		});
 		
 		return;
 	}
 	
 	showCatcher.processAll(function(err){
-		res.redirect('home');
+		res.render('home');
 	});
 });
 
@@ -120,7 +117,7 @@ app.get('/remove', function(req,res){
 		showCatcher.commit();
 	}
 	
-	res.redirect('home');
+	res.render('home');
 });
 
 
@@ -157,7 +154,7 @@ app.post('/add', function(req,res){
 	
 	showCatcher.addFeed(feed.url, feed.title, feed.options);
 	
-	res.redirect('home');
+	res.render('home');
 });
 
 
