@@ -1,0 +1,37 @@
+<% include header.ejs %>
+
+<a href="config">Config</a>
+<h1>Subscriptions</h1>
+
+<table class="results">
+    <tr>
+        <th>Name</th>
+        <th>Url</th>
+        <th>Last checked</th>
+        <th>Last download</th>
+        <th colspan="2">Options</th>
+    </tr>
+
+    <% if(showCatcher.subscriptions.length == 0){ %>
+        <tr>
+            <td colspan="3">No subscriptions</td>
+        </tr>
+    <% } else { %>
+       <% for(var i=0; i < showCatcher.subscriptions.length; i++){ %>
+           <% var sub = showCatcher.subscriptions[i] %>
+           
+           <tr>
+               <td><%=sub.name%></td>
+               <td><%=sub.url%></td>
+               <td><%=formatDateTime(sub.lastChecked) %></td>
+               <td><%=formatDateTime(sub.lastDownload) %></td>
+               <td><a href="fetch_now?index=<%=i %>">Fetch</a></td>
+               <td><a href="remove?index=<%=i %>">Remove</a></td>
+           </tr>
+       <% } %> 
+    <% }%>
+</td>
+</table>
+
+<h4>Add a subscription</h4>
+<% include add_feed_form.ejs %>

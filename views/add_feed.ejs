@@ -1,0 +1,20 @@
+<% include header.ejs %>
+<% include add_feed_form.ejs %>
+
+<% if(locals.torrents) {%>
+
+<table class="results">
+    <tr>
+        <th>Title</th>
+        <th>Published</th>
+    </tr>    
+    <% for(var i=0; i < torrents.length; i++){ 
+        var t = torrents[i];
+    %>
+        <tr>
+            <td><%=t.title %></td>
+            <td><%=formatDateTime(t.date) %></td>
+        </tr>
+    <% } %>
+<% } %>
+</table>

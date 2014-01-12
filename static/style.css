@@ -1,0 +1,41 @@
+
+body {
+	font-family: sans-serif;
+}
+
+form {
+	min-width: 500px;
+}
+
+form label {
+	display: inline-block;
+	width: 150px;
+}
+
+form input[type=text], form input[type=password] {
+	width: 300px;
+	
+	border-radius: 3px;
+	border: solid 1px;
+	padding: 3px;
+}
+
+
+table.results {
+	width: 100%;
+	border-radius: 5px;
+}
+
+table.results td {
+	padding: 3px;
+	background: #eee;
+	text-align: center;
+}
+
+
+table.results th {
+	padding: 3px;
+	background: #333;
+	color: white;
+	text-align: center;
+}

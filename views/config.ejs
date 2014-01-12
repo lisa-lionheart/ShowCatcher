@@ -1,0 +1,47 @@
+<% include header.ejs %>
+<h1>Config</h1>
+
+<form action="config" method="post">
+    
+
+    <h4>System settings</h4>
+
+    <label>Download Dir:</label>
+    <input name="downloadDir" type="text" value="<%=showCatcher.config.downloadDir %>">
+    </br>
+
+    <label>Update Interval:</label>
+    <input name="interval" type="text" value="<%=showCatcher.config.interval %>">
+    </br>
+    
+    <h4>Security</h1>
+    <label>Username:</label>
+    <input name="auth.username" type="text" value="<%=showCatcher.config.auth.username %>">
+    </br>
+
+    <label>Password:</label>
+    <input name="auth.password" type="password" value="<%=showCatcher.config.auth.password %>">
+    </br>
+        
+    <h4>Transmission Settings</h4>
+
+    <label>Hostname:</label>
+    <input name="transmission.host" type="text" value="<%=showCatcher.config.transmission.host %>">
+    </br>
+
+    <label>Port:</label>
+    <input name="transmission.port" type="text" value="<%=showCatcher.config.transmission.port %>">
+    </br>
+
+    <label>Username:</label>
+    <input name="transmission.username" type="text" value="<%=showCatcher.config.transmission.username %>">
+    </br>
+
+    <label>Password:</label>
+    <input name="transmission.password" type="password" value="<%=showCatcher.config.transmission.password %>">
+    </br>
+
+    <p>Service will restart when saving</p>
+    <input type="submit" value="save">
+
+</form>

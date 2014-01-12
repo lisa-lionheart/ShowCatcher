@@ -1,0 +1,27 @@
+{
+  "name": "ShowCatcher",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "superagent": "~0.16.0",
+    "transmission": "~0.3.3",
+    "ejs": "~0.8.5",
+    "express": "~3.4.7",
+    "async": "~0.2.9",
+    "html-entities": "~1.0.10"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-mocha-cli": "~1.5.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "should": "~2.1.1",
+    "sinon": "~1.7.3"
+  }
+}

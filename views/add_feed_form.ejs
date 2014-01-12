@@ -1,0 +1,66 @@
+<%
+    if(!locals.feed){
+        locals.feed = {
+            title: '',
+            url: '',
+            options: {
+                downloadDir: showCatcher.config.downloadDir
+            }
+        }
+    }
+%>
+<script>
+
+var presets = <%-JSON.stringify(getPresets())%>;
+var downloadDir = '<%=showCatcher.config.downloadDir %>'; 
+
+function selectPreset(event){
+    var preset = presets[event.target.selectedIndex];
+    
+    $('input[name=url]').val(preset.url);
+    $('input[name=title]').val(preset.name);
+    $('input[name=downloadDir]').val(downloadDir + preset.name);
+}
+
+$(function(){
+
+    var select = $('select.presets');
+
+    for(var i in presets){
+        var p = presets[i];
+        $('<option>'+p.text+'</option>').appendTo(select);
+    }
+    
+    select.on('change',selectPreset);
+});
+
+</script>
+<form action="add" method="POST">
+
+    <label>Presets:</label>
+    <select class="presets"></select>
+    <br/>
+    
+    <label>Title:</label>
+    <input required type="text" name="title" value="<%=feed.title %>">
+    <br/>
+    
+    <label>Url:</label>
+    <input required type="text" name="url"  value="<%=feed.url %>">
+    <br/>
+    
+    
+    <label>Directory</label>
+    <input required type="text" name="downloadDir" value="<%=feed.options.downloadDir %>">
+    <br/>
+    
+    <label>Quality:</label>
+    <select name="quality">
+        <option value="any" <%-(feed.options.quality==='any'?'selected':'')%>>Any</option>
+        <option value="720p" <%-(feed.options.quality==='720p'?'selected':'')%>>720p</option>
+    </select>
+    <br/>
+
+    <input type="submit" value="Add" name="add">
+    <input type="submit" value="Test" name="test">
+</form>

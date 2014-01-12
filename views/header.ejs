@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<title>Show Catcher</title>
+<link rel="stylesheet" href="/style.css">
+<script src="jquery-1.10.2.min.js"></script>
+<script src="chosen.jquery.min.js"></script>
+
+<div class="messages">
+<% for(var i=0; i < showCatcher.messages.length; i++){
+    var msg = showCatcher.messages[i];
+%>
+    <p class="message <%=(msg.isError?'error':'')%>">
+        <span class="date"><%=formatDateTime(msg.when)%></span>
+        <span><%=msg.text%>
+    </p>
+<%}%>
+<% showCatcher.messages = []; %>
+</div>
